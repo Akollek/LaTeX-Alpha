@@ -27,10 +27,6 @@ This command gerenates a graphic. For example,
 
 will generate the following graph and make it availible to your LaTeX document in the image file `sin.png`.
 
-```\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{sin.png}
-\caption{Plot of sin(x) generated with the Wolfram API}
-\end{figure}```
+``` \begin{figure}\n \centering\n \includegraphics[width=0.8\textwidth]{sin.png}\n \caption{Plot of sin(x) generated with the Wolfram API}\n \end{figure}```
 
 ![Sin](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/pic.png)
