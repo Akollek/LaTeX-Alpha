@@ -1,11 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{alphatex}[2014/03/28 Alpha-Tex]
+\RequirePackage{graphicx}
 
 
+\newcommand{\graphic}[1]{
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/ac35f8dc-42d2-4681-b47b-45fe8b67f143"  --data-urlencode "x=#1"> pic.png}
 
-
-
-
+}
 
 
 \endinput
+
+
+
