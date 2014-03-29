@@ -1,10 +1,11 @@
 
 
+<!---
 ![alphatex](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/alphatex.png)
 
 ========
 
-AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. 
+AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. See the Demo PDF for full examples
 
 
 # Commands
@@ -34,3 +35,7 @@ will generate the following graph and make it availible to your LaTeX document i
 	\end{figure}
 
 ![Sin](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/pic.png)
+
+-->
+
+![AlphaTeX](https://github.com/Akollek/AlphaTeX/blob/master/AlphaTeX-Demo.pdf)
