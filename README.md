@@ -13,7 +13,7 @@ AlphaTeX is a LaTeX package allowing for calculation and plot generation inside 
 
 This command evaluates a mathematical expression, taking Wolfram Language syntax. For example 
 
-```\calc{Exp[I*Pi]}```
+``` \calc{Exp[I*Pi]} ```
 
 will compile to 
 
