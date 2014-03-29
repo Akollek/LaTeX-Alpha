@@ -4,7 +4,7 @@
 
 ========
 
-AlphaTeX is a LaTeX package allowing for calculation and plot generation inside LaTeX documents. 
+AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. 
 
 
 # Commands
