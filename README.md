@@ -19,7 +19,7 @@ will compile to
 
 ![Neg1](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/calc-example.png)
 
-####### \graphic{}
+###### \graphic{}
 
 This command gerenates a graphic.
 
