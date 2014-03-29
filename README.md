@@ -1,11 +1,13 @@
 
 
-<!---
+
 ![alphatex](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/alphatex.png)
 
 ========
 
-AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. See the Demo PDF for full examples
+AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. 
+
+__See the Demo PDF for full examples__
 
 
 # Commands
@@ -36,6 +38,12 @@ will generate the following graph and make it availible to your LaTeX document i
 
 ![Sin](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/pic.png)
 
--->
+###### \WolframAlpha{} and \WolframAlphaMath{}
 
-![AlphaTeX](https://github.com/Akollek/AlphaTeX/blob/master/AlphaTeX-Demo.pdf)
+Take in a Wolfram Alpha query. For example 
+
+``` $\WolframAlpha{ what is the biggest city in china }$ ```
+
+will compile to Shanghai.
+
+
