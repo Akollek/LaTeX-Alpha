@@ -18,3 +18,13 @@ This command evaluates a mathematical expression, taking Wolfram Language syntax
 will compile to 
 
 ![Neg1](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/calc-example.png)
+
+####### \graphic{}
+
+This command gerenates a graphic.
+
+``` \graphic{Plot[Sin[x],{x,0,2 Pi}]} ```
+
+will generate the following graph and make it availible to your LaTeX document
+
+![Sin](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/pic.png)
