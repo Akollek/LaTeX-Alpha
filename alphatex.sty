@@ -3,9 +3,15 @@
 \RequirePackage{graphicx}
 
 
-\newcommand{\graphic}[1]{
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/ac35f8dc-42d2-4681-b47b-45fe8b67f143"  --data-urlencode "x=#1"> pic.png}
+\newcommand{\graphic}[2]{
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/ac35f8dc-42d2-4681-b47b-45fe8b67f143"  --data-urlencode "x=#1" > '#2'.png}
+}
 
+\newcommand{\calc}[1]{
+	\immediate\write18{rm -f calc.txt}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/3781622d-8670-4322-aec0-e9613e2f3ae0" --data-urlencode "x=#1" > calc.txt}
+	\input{calc.txt}
+	\immediate\write18{rm -f calc.txt}
 }
 
 
