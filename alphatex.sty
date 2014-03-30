@@ -2,11 +2,24 @@
 \ProvidesPackage{alphatex}[2014/03/28 Alpha-Tex]
 \RequirePackage{graphicx}
 \RequirePackage{amsmath}
+\RequirePackage{hyperref}
 
 
+\newcommand{\threeDQuadratic}[1]{
+	\href{https://www.wolframcloud.com/app/view/file/52b542b01db84baa8705f6338c449ed2}{#1}
+}
+
+\newcommand{\threeDSphere}[1]{
+	\href{https://www.wolframcloud.com/app/view/file/1ab7507480c34bb09c5e73f0b70b2d27}{#1}
+}
+
+\newcommand{\threeDSinusoid}[1]{
+	\href{https://www.wolframcloud.com/app/view/file/6314a9dcf1164fd88f49286cae3a8d7c}{#1}
+}
+
+\newcommand{\alphatex}{\href{https://github.com/Akollek/AlphaTeX}{\textbf{$\alpha$-T$_{\textbf{E}}$X}}\ }
 
 
-\newcommand{\alphatex}{\textbf{$\alpha$-T$_{\textbf{E}}$X}}
 
 \newcommand{\graphic}[2]{
 	\immediate\write18{curl "https://www.wolframcloud.com/objects/c6d1dc68-1812-4a20-84da-9c45f68b054b"  --data-urlencode "x=#1" > '#2'.png}
