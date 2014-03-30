@@ -10,6 +10,7 @@ AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation
 __See the Demo PDF for full examples__
 
 Note: LaTeX documents created with this package must be compiled with the command `pdflatex --shell-escape`
+AlphaTeX requires a UNIX system with `curl`, though could be easily adapted for use with `wget`.
 
 # Commands
 
