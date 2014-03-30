@@ -9,6 +9,7 @@ AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation
 
 __See the Demo PDF for full examples__
 
+Note: LaTeX documents created with this package must be compiled with the command `pdflatex --shell-escape`
 
 # Commands
 
@@ -46,4 +47,7 @@ Take in a Wolfram Alpha query. For example
 
 will compile to Shanghai.
 
+###### \dataplotTXT{}
+
+`\dataplotTXT{}` allows for data which is stored in the same directory as a .tex file to be graphed in the compiled document. 
 

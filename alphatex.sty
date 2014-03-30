@@ -1,18 +1,55 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{alphatex}[2014/03/28 Alpha-Tex]
 \RequirePackage{graphicx}
+\RequirePackage{amsmath}
 
+
+
+
+\newcommand{\alphatex}{\textbf{$\alpha$-T$_{\textbf{E}}$X}}
 
 \newcommand{\graphic}[2]{
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/ac35f8dc-42d2-4681-b47b-45fe8b67f143"  --data-urlencode "x=#1" > '#2'.png}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/c6d1dc68-1812-4a20-84da-9c45f68b054b"  --data-urlencode "x=#1" > '#2'.png}
 }
+
+
+
+\newcommand{\threedgraphlink}{}
 
 \newcommand{\calc}[1]{
 	\immediate\write18{rm -f calc.txt}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/3781622d-8670-4322-aec0-e9613e2f3ae0" --data-urlencode "x=#1" > calc.txt}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/2fde9702-a910-41eb-93ce-8b061798d866" --data-urlencode "x=#1" > calc.txt}
 	\input{calc.txt}
 	\immediate\write18{rm -f calc.txt}
 }
+
+\newcommand{\calctex}[1]{
+	\immediate\write18{rm -f calctex.txt}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/2fde9702-a910-41eb-93ce-8b061798d866" --data-urlencode "x=#1" > calctex.txt}
+	\input{calctex.txt}
+	\immediate\write18{rm -f calctex.txt}
+}
+
+\newcommand{\WolframAlpha}[1]{
+	\immediate\write18{rm -f wolfalph.txt}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/eb1f9cf4-e368-44c8-98a4-059d1244db65" --data-urlencode "x=#1" > wolfalph.txt}
+	\input{wolfalph.txt}
+	\immediate\write18{rm -f wolfalph.txt}
+}
+
+\newcommand{\WolframAlphaMath}[1]{
+	\immediate\write18{rm -f wolfalphm.txt}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/f1bdbc66-04cb-4805-b1a4-19f6ba3ddad6" --data-urlencode "x=#1" > wolfalphm.txt}
+	\input{wolfalphm.txt}
+	\immediate\write18{rm -f wolfalphm.txt}
+}
+
+
+\newcommand{\dataplotTXT}[3]{
+	\immediate\write18{List=`cat '#1'` && curl "https://www.wolframcloud.com/objects/5f9af475-d92f-4a89-8273-a661eece50ca" --data-urlencode "x=#2" --data-urlencode "list=$List" > '#3'.png}
+}
+
+
 
 
 \endinput
