@@ -5,14 +5,19 @@
 
 ========
 
-AlphaTeX is a LaTeX package which uses the Wolfram API to facilitate calculation and plot generation inside LaTeX documents. 
+AlphaTeX is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of AlphaTeX is to provide the most complete, powerful and self-suficient typesetting environment.
 
-__See the Demo PDF for full examples__
+__Please see AlphaTeX-Demo.pdf for fuller documentation__
 
-Note: LaTeX documents created with this package must be compiled with the command `pdflatex --shell-escape`
-AlphaTeX requires a UNIX system with `curl`, though could be easily adapted for use with `wget`.
+### Use Instructions
 
-# Commands
+1. Download `alphatex.sty` and put it in the same directory as your `.tex` document.
+2. Add `\usepackage{alphatex}` to your preamble.
+3. Compile your document using `pdflatex --shell-escape your-document.tex` (this step requires that `curl` is installed, `wget` compatability coming soon)
+4. Enjoy cool documents!
+
+
+### Commands
 
 ###### \calc{}
 
