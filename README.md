@@ -5,7 +5,7 @@
 
 ========
 
-AlphaTeX is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of AlphaTeX is to provide the most complete, powerful and self-suficient typesetting environment.
+AlphaTeX is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of AlphaTeX is to provide the most complete, powerful and self-sufficient typesetting environment.
 
 __Please see AlphaTeX-Demo.pdf for fuller documentation__
 
@@ -13,8 +13,11 @@ __Please see AlphaTeX-Demo.pdf for fuller documentation__
 
 1. Download `alphatex.sty` and put it in the same directory as your `.tex` document.
 2. Add `\usepackage{alphatex}` to your preamble.
-3. Compile your document using `pdflatex --shell-escape your-document.tex` (this step requires that `curl` is installed, `wget` compatability coming soon)
+3. Compile your document using `pdflatex --shell-escape your-document.tex` (this step requires that `curl` is installed, `wget` compatibility coming soon)
 4. Enjoy cool documents!
+
+
+__AlphaTeX is a work in progress! For now it will only be available for a few months. Please email me with bugs/suggestions/comments!__
 
 
 ### Commands
@@ -31,11 +34,11 @@ will compile to
 
 ###### \graphic{}
 
-This command gerenates a graphic. For example,
+This command generates a graphic. For example,
 
 ``` \graphic{Plot[Sin[x],{x,0,2 Pi}]}{sin} ```
 
-will generate the following graph and make it availible to your LaTeX document in the image file `sin.png`.
+will generate the following graph and make it available to your LaTeX document in the image file `sin.png`.
 
 	\begin{figure} 
 	\centering
