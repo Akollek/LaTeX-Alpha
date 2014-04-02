@@ -5,6 +5,8 @@
 
 ========
 
+__AlphaTeX is down until the Wolfram Cloud becomes publicly available! Please check back soon!__
+
 AlphaTeX is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of AlphaTeX is to provide the most complete, powerful and self-sufficient typesetting environment.
 
 __Please see AlphaTeX-Demo.pdf for fuller documentation__
