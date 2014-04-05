@@ -1,25 +1,25 @@
 
 
 
-![alphatex](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/alphatex.png)
+![latexalpha](https://raw.githubusercontent.com/Akollek/LaTeX-Alpha/master/latexalpha.png)
 
 ========
 
-__AlphaTeX is down until the Wolfram Cloud becomes publicly available! Please check back soon!__
+__LaTeX-Alpha is down until the Wolfram Cloud becomes publicly available! Please check back soon!__
 
-AlphaTeX is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of AlphaTeX is to provide the most complete, powerful and self-sufficient typesetting environment.
+LaTeX-Alpha is a LaTeX package which incorporates the typesetting ease and control of LaTeX with the power of the Wolfram Language. The goal of LaTeX-Alpha is to provide the most complete, powerful and self-sufficient typesetting environment.
 
-__Please see AlphaTeX-Demo.pdf for fuller documentation__
+__Please see LaTeX-Alpha-Demo.pdf for fuller documentation__
 
 ### Use Instructions
 
-1. Download `alphatex.sty` and put it in the same directory as your `.tex` document.
-2. Add `\usepackage{alphatex}` to your preamble.
+1. Download `latexalpha.sty` and put it in the same directory as your `.tex` document.
+2. Add `\usepackage{latexalpha}` to your preamble.
 3. Compile your document using `pdflatex --shell-escape your-document.tex` (this step requires that `curl` is installed, `wget` compatibility coming soon)
 4. Enjoy cool documents!
 
 
-__AlphaTeX is a work in progress! For now it will only be available for a few months. Please email me with bugs/suggestions/comments!__
+__LaTeX-Alpha is a work in progress! For now it will only be available for a few months. Please email me with bugs/suggestions/comments!__
 
 
 ### Commands
@@ -32,7 +32,7 @@ This command evaluates a mathematical expression, taking Wolfram Language syntax
 
 will compile to 
 
-![Neg1](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/calc-example.png)
+![Neg1](https://raw.githubusercontent.com/Akollek/LaTeX-Alpha/master/calc-example.png)
 
 ###### \graphic{}
 
@@ -48,7 +48,7 @@ will generate the following graph and make it available to your LaTeX document i
 	\caption{Plot of sin(x) generated with the Wolfram API}
 	\end{figure}
 
-![Sin](https://raw.githubusercontent.com/Akollek/AlphaTeX/master/pic.png)
+![Sin](https://raw.githubusercontent.com/Akollek/LaTeX-Alpha/master/pic.png)
 
 ###### \WolframAlpha{} and \WolframAlphaMath{}
 
