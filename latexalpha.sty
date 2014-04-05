@@ -10,10 +10,11 @@
 %To do - Add general 3d graphic options
 %To do - file upload and import on cloud side, CSV compatability, .m compatability. (POST file. Import on cloud side?)
 %To do - initalize could kernel with local .m file to use personally defined functions. More gernally, allow more control over cloud object (DeclareOption initialize=----.m and run it within each command? This might be slow.)
-%To do - add possibility to use greek letters and other symbols (try [\omega] first. This might work)
+%To do - add possibility to use greek letters and other symbols (\[Omega] does not work because latex won't compile with an unmatched "\[". Solution: "Greek" function on Cloud Side)
 %To do - Set up option to pass Wolfram login info to package and have it run on user's cloud
+%To do -  add \solve{expr}{var(s?)} (Solve[]). Find way to handle list of rules and return LaTeXForm.
 
-\newcommand{\latexalpha}{\href{https://github.com/Akollek/AlphaTeX}{ \textbf{\LaTeX-$\alpha$} }}
+\newcommand{\latexalpha}{\href{https://github.com/Akollek/LaTeX-Alpha}{ \textbf{\LaTeX-$\alpha$} }}
 
 \newcommand{\threeDQuadratic}[1]{
 	\href{https://www.wolframcloud.com/app/view/file/52b542b01db84baa8705f6338c449ed2}{#1}
@@ -33,25 +34,26 @@
 	\immediate\write18{curl "https://www.wolframcloud.com/objects/c6d1dc68-1812-4a20-84da-9c45f68b054b"  --data-urlencode "x=#1" > '#2'.png}
 }
 
+
 \newcommand{\calc}[1]{
-	\immediate\write18{rm -f calc.alphatex}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/2fde9702-a910-41eb-93ce-8b061798d866" --data-urlencode "x=#1" > calc.alphatex}
-	\input{calc.alphatex}
-	\immediate\write18{rm -f calc.alphatex}
+	\immediate\write18{rm -f calc.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/a6574816-f940-4975-9c7f-7a1f99099ed4" --data-urlencode "x=#1" > calc.latexalpha}
+	\input{calc.latexalpha}
+	\immediate\write18{rm -f calc.latexalpha}
 }
 
 \newcommand{\WolframAlpha}[1]{
-	\immediate\write18{rm -f wolfalph.alphatex}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/eb1f9cf4-e368-44c8-98a4-059d1244db65" --data-urlencode "x=#1" > wolfalph.alphatex}
-	\input{wolfalph.alphatex}
-	\immediate\write18{rm -f wolfalph.alphatex}
+	\immediate\write18{rm -f wolfalph.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/eb1f9cf4-e368-44c8-98a4-059d1244db65" --data-urlencode "x=#1" > wolfalph.latexalpha}
+	\input{wolfalph.latexalpha}
+	\immediate\write18{rm -f wolfalph.latexalpha}
 }
 
 \newcommand{\WolframAlphaMath}[1]{
-	\immediate\write18{rm -f wolfalphm.alphatex}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/f1bdbc66-04cb-4805-b1a4-19f6ba3ddad6" --data-urlencode "x=#1" > wolfalphm.alphatex}
-	\input{wolfalphm.alphatex}
-	\immediate\write18{rm -f wolfalphm.alphatex}
+	\immediate\write18{rm -f wolfalphm.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/f1bdbc66-04cb-4805-b1a4-19f6ba3ddad6" --data-urlencode "x=#1" > wolfalphm.latexalpha}
+	\input{wolfalphm.latexalpha}
+	\immediate\write18{rm -f wolfalphm.latexalpha}
 }
 
 \newcommand{\dataplotTXT}[3]{

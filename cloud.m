@@ -29,3 +29,12 @@ CloudDeploy[Graphics3D[Sphere[{0,0,0}]],Permissions->"Public"]
 CloudDeploy[ExportForm[Plot3D[x^2*y^2, {x, -10, 10}, {y, -10, 10}],"CloudCDF"],Permissions->"Public"]
 
 
+
+
+(*Greek Character Support*)
+CloudDeploy[APIFunction[{x->"String"},
+(Greek[x_] := Module[{let},
+(let = ToString[x];
+ToExpression["\\"<>"[" <> let <> "]"])];
+ToExpression["TeXForm"][Evaluate[ToExpression[# x]]])&],
+Permissions->"Public"]
