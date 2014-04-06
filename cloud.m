@@ -10,8 +10,14 @@ ExportForm[Rasterize[ToExpression[# x]], "PNG"]&],Permissions->"Public"]
 (*URL for calculations*)
 CloudDeploy[APIFunction[{x->"String"},ToExpression["TeXForm"][Evaluate[ToExpression[# x]]]&],Permissions->"Public"]
 
-(*Wolfram Alpha*)
-CloudDeploy[APIFunction[{x->"String"},ToExpression["TeXForm"][WolframAlpha[ # x,"WolframResult" ][[1]]]&],Permissions->"Public"]
+(*Improved Wolfram Alpha *)
+CloudDeploy[APIFunction[{x->"String"},
+(result=WolframAlpha[ # x,"WolframResult" ];
+If[Length[result]==1,ToExpression["TeXForm"][result[[1]]],
+output = ToString[result[[1]]];
+For[i = 2, i <= Length[result], i++,
+output = output <> " " <> ToString[result[[i]]]];
+Return[ToExpression["TeXForm"][output]]])&],Permissions->"Public"]
 
 (*Wolfram Alpha Math*)
 CloudDeploy[APIFunction[{x->"String"},ToExpression["TeXForm"][WolframAlpha[ # x,"WolframResult" ]]&],Permissions->"Public"]

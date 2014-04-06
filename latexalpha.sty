@@ -10,7 +10,6 @@
 %To do - Add general 3d graphic options
 %To do - file upload and import on cloud side, CSV compatability, .m compatability. (POST file. Import on cloud side?)
 %To do - initalize could kernel with local .m file to use personally defined functions. More gernally, allow more control over cloud object (DeclareOption initialize=----.m and run it within each command? This might be slow.)
-%To do - add possibility to use greek letters and other symbols (\[Omega] does not work because latex won't compile with an unmatched "\[". Solution: "Greek" function on Cloud Side)
 %To do - Set up option to pass Wolfram login info to package and have it run on user's cloud
 %To do -  add \solve{expr}{var(s?)} (Solve[]). Find way to handle list of rules and return LaTeXForm.
 
@@ -44,7 +43,7 @@
 
 \newcommand{\WolframAlpha}[1]{
 	\immediate\write18{rm -f wolfalph.latexalpha}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/eb1f9cf4-e368-44c8-98a4-059d1244db65" --data-urlencode "x=#1" > wolfalph.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/2d3d3245-0c73-40d2-b91b-29a12142681d" --data-urlencode "x=#1" > wolfalph.latexalpha}
 	\input{wolfalph.latexalpha}
 	\immediate\write18{rm -f wolfalph.latexalpha}
 }
