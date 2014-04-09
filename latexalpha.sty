@@ -12,6 +12,9 @@
 %To do - initalize could kernel with local .m file to use personally defined functions. More gernally, allow more control over cloud object (DeclareOption initialize=----.m and run it within each command? This might be slow.)
 %To do - Set up option to pass Wolfram login info to package and have it run on user's cloud
 %To do -  add \solve{expr}{var(s?)} (Solve[]). Find way to handle list of rules and return LaTeXForm.
+%To do -  Handle errors elegantly 
+%To do - do data fitting. Non linear,
+%To do - add greek alphabet so solve command
 
 \newcommand{\latexalpha}{\href{https://github.com/Akollek/LaTeX-Alpha}{ \textbf{\LaTeX-$\alpha$} }}
 
@@ -39,6 +42,13 @@
 	\immediate\write18{curl "https://www.wolframcloud.com/objects/a6574816-f940-4975-9c7f-7a1f99099ed4" --data-urlencode "x=#1" > calc.latexalpha}
 	\input{calc.latexalpha}
 	\immediate\write18{rm -f calc.latexalpha}
+}
+
+\newcommand{\solve}[2]{
+	\immediate\write18{rm -f solve.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/52bdce45-bd0e-4ee3-bac6-6a207c5e758d" --data-urlencode "eq=#1" --data-urlencode "var=#2" > solve.latexalpha}
+	\input{solve.latexalpha}
+	\immediate\write18{rm -f solve.latexalpha}
 }
 
 \newcommand{\WolframAlpha}[1]{
