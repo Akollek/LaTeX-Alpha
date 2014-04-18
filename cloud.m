@@ -7,9 +7,6 @@ Needs["ErrorBarPlots`"];
 ExportForm[Rasterize[ToExpression[# x]], "PNG"]&],Permissions->"Public"]
 
 
-(*URL for calculations*)
-CloudDeploy[APIFunction[{x->"String"},ToExpression["TeXForm"][Evaluate[ToExpression[# x]]]&],Permissions->"Public"]
-
 (*Improved Wolfram Alpha *)
 CloudDeploy[APIFunction[{x->"String"},
 (result=WolframAlpha[ # x,"WolframResult" ];
@@ -25,16 +22,13 @@ CloudDeploy[APIFunction[{x->"String"},ToExpression["TeXForm"][WolframAlpha[ # x,
 
 (*Data Plot*)
 CloudDeploy[APIFunction[{"x"->"String","list"->"String"},ExportForm[Rasterize[ToExpression[# x][ToExpression[# list]]],"PNG"]&],Permissions->"Public"]
-
-
-(*3D Graphs*)
-CloudDeploy[ExportForm[Plot3D[Sin[x]*Cos[y], {x, -10, 10}, {y, -10, 10}],"CloudCDF"],Permissions->"Public"]
-
-CloudDeploy[Graphics3D[Sphere[{0,0,0}]],Permissions->"Public"]
-
-CloudDeploy[ExportForm[Plot3D[x^2*y^2, {x, -10, 10}, {y, -10, 10}],"CloudCDF"],Permissions->"Public"]
-
-
+(*Data Plot with Rules*)
+CloudDeploy[APIFunction[{"plot"->"String","list"->"String","rules"->"String"},
+(func=ToExpression[# plot];
+data=ToExpression[# list];
+rulesString=StringReplace[# rules,{"("->"{",")"->"}", "'" -> "\""}];
+rules=ToExpression["{"<>rulesString<>"}"];
+ExportForm[Rasterize[func[data, rules ] ],"PNG"])&],Permissions->"Public"]
 
 
 (*Greek Character Support*)
@@ -44,3 +38,24 @@ CloudDeploy[APIFunction[{x->"String"},
 ToExpression["\\"<>"[" <> let <> "]"])];
 ToExpression["TeXForm"][Evaluate[ToExpression[# x]]])&],
 Permissions->"Public"]
+
+
+(*for solving equations*)
+CloudDeploy[
+APIFunction[{eq->"String",var->"String"},(
+Greek[x_] := ToExpression["\\" <> "[" <> ToString[x] <> "]"];
+eq=ToExpression[# eq];
+var=ToExpression[# var];
+print = {"\\begin{flalign*}"};
+rules = Solve[eq, var];
+sol = var /. rules;
+For[i = 1, i <= Length[sol], i++,
+AppendTo[print,
+"&" <> ToString[ToExpression["TeXForm"][var]] <> "=" <> ToString[ToExpression["TeXForm"][sol[[i]]]] <>
+"\\\\"]
+];
+AppendTo[print, "\\end{flalign*}"];
+return="";
+For[i = 1, i <= Length[print], i++,
+return=return<>print[[i]]];
+ExportForm[return,"Text"])&],Permissions->"Public"]

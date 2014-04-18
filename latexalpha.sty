@@ -3,18 +3,24 @@
 \RequirePackage{graphicx}
 \RequirePackage{amsmath}
 \RequirePackage{hyperref}
+\RequirePackage{ifthen}
 
 
 
-%To do - Add option for wget instead of curl
+%To do - Add option for wget instead of curl 
 %To do - Add general 3d graphic options
 %To do - file upload and import on cloud side, CSV compatability, .m compatability. (POST file. Import on cloud side?)
 %To do - initalize could kernel with local .m file to use personally defined functions. More gernally, allow more control over cloud object (DeclareOption initialize=----.m and run it within each command? This might be slow.)
 %To do - Set up option to pass Wolfram login info to package and have it run on user's cloud
-%To do -  add \solve{expr}{var(s?)} (Solve[]). Find way to handle list of rules and return LaTeXForm.
-%To do -  Handle errors elegantly 
+%To do -  Handle uncertainties elegantly  (error package completely integrated into LaTeX-Alpha?)
 %To do - do data fitting. Non linear,
-%To do - add greek alphabet so solve command
+%To do - some sort of ShowSteps command for assignments. (can I get the show steps info from WolframAlpha?) (Trace?)
+%To do - Save previous calculations/graphics so on compile you don't need to curl for a result/graphic that has not changed.
+%To do - maybe return solutions to equations as a matrix without brackets so it can be added within math environments. (Will the formatting look bad?)
+% To do - !!! Have Wolfram Side errors (bad syntax) be available to users !!! (use trace to find message list?)
+% To do - Solve differential equations
+% To do - Use subscripts
+% To do - texcalc command which takes latex input for simpler calculations (how to deal complex lowercase i's...) -  for double backlashes, go to character code, parse for all LaTeX math commands, replace
 
 \newcommand{\latexalpha}{\href{https://github.com/Akollek/LaTeX-Alpha}{ \textbf{\LaTeX-$\alpha$} }}
 
@@ -46,7 +52,7 @@
 
 \newcommand{\solve}[2]{
 	\immediate\write18{rm -f solve.latexalpha}
-	\immediate\write18{curl "https://www.wolframcloud.com/objects/52bdce45-bd0e-4ee3-bac6-6a207c5e758d" --data-urlencode "eq=#1" --data-urlencode "var=#2" > solve.latexalpha}
+	\immediate\write18{curl "https://www.wolframcloud.com/objects/a789a339-5784-4823-9dea-cd34d470a08e" --data-urlencode "eq=#1" --data-urlencode "var=#2" > solve.latexalpha}
 	\input{solve.latexalpha}
 	\immediate\write18{rm -f solve.latexalpha}
 }
@@ -65,9 +71,13 @@
 	\immediate\write18{rm -f wolfalphm.latexalpha}
 }
 
-\newcommand{\dataplotTXT}[3]{
-	\immediate\write18{List=`cat '#1'` && curl "https://www.wolframcloud.com/objects/5f9af475-d92f-4a89-8273-a661eece50ca" --data-urlencode "x=#2" --data-urlencode "list=$List" > '#3'.png}
+\newcommand{\dataplotTXT}[4]{
+	\ifthenelse{\equal{#4}{}}{
+	\immediate\write18{List=`cat '#1'` && curl "https://www.wolframcloud.com/objects/5f9af475-d92f-4a89-8273-a661eece50ca" --data-urlencode "x=#2" --data-urlencode "list=$List" > '#3'.png}}{
+	\immediate\write18{List=`cat '#1'` && curl "https://www.wolframcloud.com/objects/af778756-3e2e-4a27-af3f-24113ef0cd1e" --data-urlencode "plot=#2" --data-urlencode "list=$List" --data-urlencode "rules=#4" > '#3'.png}
+	}	
 }
+
 
 
 \endinput
